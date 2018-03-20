@@ -8,16 +8,86 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Ribbon x:Name="ribbonMainMenu" SelectedIndex="0">
-            
+
             <!-- Help pane, located at the right-hand side-->
             <Ribbon.HelpPaneContent>
                 <RibbonButton SmallImageSource="Images\Gate 72.png"/>
-            </Ribbon.HelpPaneContent>       
-            
+            </Ribbon.HelpPaneContent>
+
             <!-- Quick access toolbar -->
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <!-- quick: SAVE -->
+                    <RibbonButton x:Name="btnSave" SmallImageSource="Images\Gate 72.png"/>
+
+                    <!-- quick: UNDO -->
+                    <RibbonSplitButton x:Name="btnUndo" SmallImageSource="Images\Gate 72.png">
+                        <!-- quick: UNDO #1 -->
+                        <RibbonSplitMenuItem Header="Undo action #1"/>
+                        <!-- quick: UNDO #2 -->
+                        <RibbonSplitMenuItem Header="Undo action #2"/>
+                        <!-- quick: UNDO #3 -->
+                        <RibbonSplitMenuItem Header="Undo action #3"/>
+                    </RibbonSplitButton>
+
+                    <!-- quick: Redo -->
+                    <RibbonSplitButton x:Name="btnRedo" SmallImageSource="Images\Gate 72.png">
+                        <!-- quick: Redo #1 -->
+                        <RibbonSplitMenuItem Header="Redo action #1"/>
+                        <!-- quick: Redo #2 -->
+                        <RibbonSplitMenuItem Header="Redo action #2"/>
+                    </RibbonSplitButton>
+
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+
+            <!-- Application menu, drop-down style -->
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu KeyTip="F">
+                    <!-- Menu: Options -->
+                    <RibbonApplicationMenuItem Header="Options" ImageSource="Images\Gate 72.png"/>
+                    <!-- Menu: Exit -->
+                    <RibbonApplicationMenuItem Header="Exit" ImageSource="Images\Gate 72.png"/>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+
+            <!-- Home tab -->
+            <RibbonTab Header="Home" KeyTip="H">
+                <!-- Home/Clipboard group -->
+                <RibbonGroup x:Name="menuGroupClipboard" Header="Clipboard">
+                    <!-- List menu: Paste -->
+                    <RibbonMenuButton LargeImageSource="Images\Gate 72.png" Label="Paste" KeyTip="V">
+                        <!-- menu -->
+                        <RibbonMenuItem ImageSource="Images\Gate 72.png" Header="Keep Text Only" KeyTip="T"/>
+                        <!-- menu -->
+                        <RibbonMenuItem ImageSource="Images\Gate 72.png" Header="Paste Special..." KeyTip="S"/>
+                    </RibbonMenuButton>
+                    <RibbonMenuButton SmallImageSource="Images\Gate 72.png" Label="Cut" KeyTip="X"/>
+                    <RibbonMenuButton SmallImageSource="Images\Gate 72.png" Label="Copy" KeyTip="C"/>
+                    <RibbonMenuButton SmallImageSource="Images\Gate 72.png" Label="Format Painter" KeyTip="FP"/>
+                </RibbonGroup>
+
+                <!-- Home/Colors group -->
+                <RibbonGroup x:Name="menuGroupColor" Header="Colors">
+                    <RibbonRadioButton LargeImageSource="Images\Gate 72.png" Label="Red" KeyTip="R" IsChecked="True"/>
+                    <RibbonRadioButton LargeImageSource="Images\Gate 72.png" Label="Green" KeyTip="G"/>
+                    <RibbonRadioButton LargeImageSource="Images\Gate 72.png" Label="Blue" KeyTip="B"/>
+                </RibbonGroup>
+            </RibbonTab>
             
-            
-            
+            <!-- Launch tab -->
+            <RibbonTab Header="Launch" KeyTip="L">
+                <!-- Launch/Applications group -->
+                <RibbonGroup x:Name="menuGroupDesktopApplication" Header="Desktop Applications">                    
+                </RibbonGroup>
+                <!-- Launch/Game group -->
+                <RibbonGroup x:Name="menuGroupApp" Header="Apps">                    
+                </RibbonGroup>
+            </RibbonTab>
+
         </Ribbon>
+        
+        
+        
     </Grid>
 </Window>
